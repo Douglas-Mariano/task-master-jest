@@ -180,16 +180,3 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para detalhes.
 - As tarefas são armazenadas apenas no localStorage (não há sincronização entre dispositivos)
 - Não há validação de tarefas duplicadas
 
-## 🔮 Próximas Funcionalidades
-
-- [ ] Sincronização com banco de dados
-- [ ] Autenticação de usuário
-- [ ] Notificações de prazo
-- [ ] Anexos em tarefas
-- [ ] Compartilhamento de listas
-- [ ] Exportação de dados
-- [ ] Modo offline
-
----
-
-Feito com ❤️ usando Next.js e TypeScript
