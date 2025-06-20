@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>44/44</span>
+                <span class='fraction'>0/44</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>44/44</span>
+                <span class='fraction'>0/44</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,94 +107,94 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use client';
-&nbsp;
-import React from 'react';
-import { FilterType } from '@/types/Task';
-&nbsp;
-interface TaskFilterProps {
-  currentFilter: FilterType;
-  onFilterChange: (filter: FilterType) =&gt; void;
-}
-&nbsp;
-const TaskFilter: React.FC&lt;TaskFilterProps&gt; = ({ currentFilter, onFilterChange }) =&gt; {
-  const filters: { key: FilterType; label: string; icon: string }[] = [
-    { key: 'all', label: 'Todas', icon: '📋' },
-    { key: 'pending', label: 'Pendentes', icon: '⏳' },
-    { key: 'completed', label: 'Concluídas', icon: '✅' },
-  ];
-&nbsp;
-  return (
-    &lt;div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"&gt;
-      &lt;h3 className="text-lg font-medium text-gray-800 dark:text-white mb-4"&gt;
-        Filtrar Tarefas
-      &lt;/h3&gt;
-      
-      &lt;div className="flex flex-wrap gap-3"&gt;
-        {filters.map((filter) =&gt; (
-          &lt;button
-            key={filter.key}
-            onClick={<span class="fstat-no" title="function not covered" >() =&gt; onFilterChange(filter.key)}</span>
-            className={`flex items-center space-x-2 px-6 py-3 rounded-lg border-2 transition-all duration-200 font-medium ${
-              currentFilter === filter.key
-                ? 'bg-blue-600 text-white border-blue-600 shadow-lg transform scale-105'
-                : 'bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:shadow-md hover:scale-102'
-            }`}
-          &gt;
-            &lt;span className="text-lg"&gt;{filter.icon}&lt;/span&gt;
-            &lt;span&gt;{filter.label}&lt;/span&gt;
-          &lt;/button&gt;
-        ))}
-      &lt;/div&gt;
-    &lt;/div&gt;
-  );
-};
-&nbsp;
-export default TaskFilter;
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { FilterType } from '@/types/Task';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >interface TaskFilterProps {</span>
+<span class="cstat-no" title="statement not covered" >  currentFilter: FilterType;</span>
+<span class="cstat-no" title="statement not covered" >  onFilterChange: (filter: FilterType) =&gt; void;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >const TaskFilter: React.FC&lt;TaskFilterProps&gt; = ({ currentFilter, onFilterChange }) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const filters: { key: FilterType; label: string; icon: string }[] = [</span>
+<span class="cstat-no" title="statement not covered" >    { key: 'all', label: 'Todas', icon: '📋' },</span>
+<span class="cstat-no" title="statement not covered" >    { key: 'pending', label: 'Pendentes', icon: '⏳' },</span>
+<span class="cstat-no" title="statement not covered" >    { key: 'completed', label: 'Concluídas', icon: '✅' },</span>
+<span class="cstat-no" title="statement not covered" >  ];</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;h3 className="text-lg font-medium text-gray-800 dark:text-white mb-4"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        Filtrar Tarefas</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/h3&gt;</span>
+<span class="cstat-no" title="statement not covered" >      </span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="flex flex-wrap gap-3"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        {filters.map((filter) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >          &lt;button</span>
+<span class="cstat-no" title="statement not covered" >            key={filter.key}</span>
+<span class="cstat-no" title="statement not covered" >            onClick={() =&gt; onFilterChange(filter.key)}</span>
+<span class="cstat-no" title="statement not covered" >            className={`flex items-center space-x-2 px-6 py-3 rounded-lg border-2 transition-all duration-200 font-medium ${</span>
+<span class="cstat-no" title="statement not covered" >              currentFilter === filter.key</span>
+<span class="cstat-no" title="statement not covered" >                ? 'bg-blue-600 text-white border-blue-600 shadow-lg transform scale-105'</span>
+<span class="cstat-no" title="statement not covered" >                : 'bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:shadow-md hover:scale-102'</span>
+<span class="cstat-no" title="statement not covered" >            }`}</span>
+<span class="cstat-no" title="statement not covered" >          &gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;span className="text-lg"&gt;{filter.icon}&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;span&gt;{filter.label}&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >        ))}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export default TaskFilter;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -202,7 +202,7 @@ export default TaskFilter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-20T01:37:17.709Z
+                at 2025-06-20T02:21:52.737Z
             </div>
         <script src="prettify.js"></script>
         <script>

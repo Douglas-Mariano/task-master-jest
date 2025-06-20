@@ -13,7 +13,11 @@ const TaskStats: React.FC<TaskStatsProps> = ({ tasks, isLoading = false }) => {
   const totalTasks = isLoading ? 0 : tasks.length;
   const completedTasks = isLoading ? 0 : tasks.filter(task => task.completed).length;
   const pendingTasks = isLoading ? 0 : totalTasks - completedTasks;
-  const completionRate = isLoading ? 0 : (totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0);
+  
+  let completionRate = 0;
+  if (!isLoading && totalTasks > 0) {
+    completionRate = Math.round((completedTasks / totalTasks) * 100);
+  }
 
   const highPriorityTasks = isLoading ? 0 : tasks.filter(task => task.priority === 'high' && !task.completed).length;
   const categories = isLoading ? [] : [...new Set(tasks.map(task => task.category).filter(Boolean))];
@@ -46,15 +50,11 @@ const TaskStats: React.FC<TaskStatsProps> = ({ tasks, isLoading = false }) => {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-      <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-        Estatísticas
-      </h2>
-      
+    <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        {stats.map((stat, index) => (
+        {stats.map((stat) => (
           <div
-            key={index}
+            key={stat.label}
             className={`p-4 rounded-lg border-2 ${stat.color} transition-transform hover:scale-105 ${isLoading ? 'animate-pulse' : ''}`}
           >
             <div className="flex items-center justify-between">

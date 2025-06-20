@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import TaskManager from '../components/TaskManager';
 
@@ -34,7 +34,15 @@ describe('TaskManager - Teste de Configuração TSX', () => {
     // Testa elementos que realmente existem no componente
     expect(screen.getByText('Nova Tarefa')).toBeInTheDocument();
     expect(screen.getByText('Nenhuma tarefa encontrada')).toBeInTheDocument();
-    expect(screen.getByText('Estatísticas')).toBeInTheDocument();
+    
+    // Botão de estatísticas existe
+    const statsButton = screen.getByText('Estatísticas');
+    expect(statsButton).toBeInTheDocument();
+    
+    // Clica no botão de estatísticas para expandir
+    fireEvent.click(statsButton);
+    
+    // Agora verifica se as estatísticas aparecem
     expect(screen.getByText('Total de Tarefas')).toBeInTheDocument();
   });
 

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Task Master - Gerenciador de Tarefas",
+  title: "Lista de Tarefas",
   description: "Sistema completo de gerenciamento de tarefas com TypeScript e React",
 };
 
