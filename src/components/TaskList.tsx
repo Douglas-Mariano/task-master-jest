@@ -9,9 +9,20 @@ interface TaskListProps {
   onToggleComplete: (id: string) => void;
   onDelete: (id: string) => void;
   onEdit: (task: Task) => void;
+  isLoading?: boolean;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onToggleComplete, onDelete, onEdit }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, onToggleComplete, onDelete, onEdit, isLoading = false }) => {
+  if (isLoading) {
+    return (
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+        <div className="text-gray-400 dark:text-gray-500">
+          Carregando tarefas...
+        </div>
+      </div>
+    );
+  }
+
   if (tasks.length === 0) {
     return (
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">

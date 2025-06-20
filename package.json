@@ -11,7 +11,10 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:silent": "jest --silent",
-    "test:verbose": "jest --verbose"
+    "test:verbose": "jest --verbose",
+    "test:components": "jest --testMatch='**/__tests__/**/*.(tsx)' --testMatch='**/*.(test|spec).(tsx)'",
+    "test:react-only": "jest --testPathPattern='\\.tsx$'",
+    "test:no-ts": "jest --testPathIgnorePatterns='\\.ts$'"
   },
   "dependencies": {
     "next": "15.3.3",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
     "@eslint/eslintrc": "^3",
     "@jest/globals": "^30.0.2",

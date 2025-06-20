@@ -16,24 +16,24 @@ const TaskFilter: React.FC<TaskFilterProps> = ({ currentFilter, onFilterChange }
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
-      <h3 className="text-lg font-medium text-gray-800 dark:text-white mb-3">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <h3 className="text-lg font-medium text-gray-800 dark:text-white mb-4">
         Filtrar Tarefas
       </h3>
       
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-3">
         {filters.map((filter) => (
           <button
             key={filter.key}
             onClick={() => onFilterChange(filter.key)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg border transition-all ${
+            className={`flex items-center space-x-2 px-6 py-3 rounded-lg border-2 transition-all duration-200 font-medium ${
               currentFilter === filter.key
-                ? 'bg-blue-600 text-white border-blue-600 shadow-md'
-                : 'bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600'
+                ? 'bg-blue-600 text-white border-blue-600 shadow-lg transform scale-105'
+                : 'bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:shadow-md hover:scale-102'
             }`}
           >
-            <span>{filter.icon}</span>
-            <span className="font-medium">{filter.label}</span>
+            <span className="text-lg">{filter.icon}</span>
+            <span>{filter.label}</span>
           </button>
         ))}
       </div>

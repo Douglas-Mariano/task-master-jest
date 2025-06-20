@@ -5,16 +5,18 @@ import { Task } from '@/types/Task';
 
 interface TaskStatsProps {
   tasks: Task[];
+  isLoading?: boolean;
 }
 
-const TaskStats: React.FC<TaskStatsProps> = ({ tasks }) => {
-  const totalTasks = tasks.length;
-  const completedTasks = tasks.filter(task => task.completed).length;
-  const pendingTasks = totalTasks - completedTasks;
-  const completionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+const TaskStats: React.FC<TaskStatsProps> = ({ tasks, isLoading = false }) => {
+  // Se está carregando, mostra dados vazios/loading
+  const totalTasks = isLoading ? 0 : tasks.length;
+  const completedTasks = isLoading ? 0 : tasks.filter(task => task.completed).length;
+  const pendingTasks = isLoading ? 0 : totalTasks - completedTasks;
+  const completionRate = isLoading ? 0 : (totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0);
 
-  const highPriorityTasks = tasks.filter(task => task.priority === 'high' && !task.completed).length;
-  const categories = [...new Set(tasks.map(task => task.category).filter(Boolean))];
+  const highPriorityTasks = isLoading ? 0 : tasks.filter(task => task.priority === 'high' && !task.completed).length;
+  const categories = isLoading ? [] : [...new Set(tasks.map(task => task.category).filter(Boolean))];
 
   const stats = [
     {
@@ -53,7 +55,7 @@ const TaskStats: React.FC<TaskStatsProps> = ({ tasks }) => {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className={`p-4 rounded-lg border-2 ${stat.color} transition-transform hover:scale-105`}
+            className={`p-4 rounded-lg border-2 ${stat.color} transition-transform hover:scale-105 ${isLoading ? 'animate-pulse' : ''}`}
           >
             <div className="flex items-center justify-between">
               <div>
@@ -84,7 +86,7 @@ const TaskStats: React.FC<TaskStatsProps> = ({ tasks }) => {
       </div>
 
       {/* Barra de progresso */}
-      {totalTasks > 0 && (
+      {totalTasks > 0 && !isLoading && (
         <div className="mt-4">
           <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300 mb-1">
             <span>Progresso Geral</span>
@@ -92,9 +94,9 @@ const TaskStats: React.FC<TaskStatsProps> = ({ tasks }) => {
           </div>
           <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
             <div
-              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300 ease-out"
               style={{ width: `${completionRate}%` }}
-            />
+            ></div>
           </div>
         </div>
       )}
